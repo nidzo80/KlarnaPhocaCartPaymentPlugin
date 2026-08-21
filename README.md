@@ -66,7 +66,7 @@ services/provider.php              # PSR-4 service provider
 src/Extension/Klarna.php           # Event handlers, order payload building, admin panel
 src/Helper/ApiHelper.php           # Klarna API client (sessions, orders, capture, refund, cancel)
 src/Helper/ShopHelper.php          # Generic Phoca Cart wrapper (logging, cart, order status)
-language/en-GB/ , sv-SE/ , sr-RS/
+language/en-GB/ , sv-SE/ , sr-YU/
 ```
 
 ## Known limitations
