@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="pcp" method="upgrade" version="3">
+    <name>plg_pcp_klarna</name>
+    <creationDate>10.08.2026.</creationDate>
+    <author>Nikola Đurić Nidžo</author>
+    <authorEmail>Nikola Đurić Nidžo</authorEmail>
+    <copyright>Copyright (C) 2026. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later</license>
+    <version>0.1.0</version>
+    <description>PLG_PCP_KLARNA_XML_DESCRIPTION</description>
+    <namespace path="src">YourVendor\Plugin\Pcp\Klarna</namespace>
+
+    <scriptfile>install.php</scriptfile>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/plg_pcp_klarna.ini</language>
+        <language tag="en-GB">en-GB/plg_pcp_klarna.sys.ini</language>
+        <language tag="sv-SE">sv-SE/plg_pcp_klarna.ini</language>
+        <language tag="sv-SE">sv-SE/plg_pcp_klarna.sys.ini</language>
+        <language tag="sr-RS">sr-RS/plg_pcp_klarna.ini</language>
+        <language tag="sr-RS">sr-RS/plg_pcp_klarna.sys.ini</language>
+    </languages>
+
+    <files>
+        <folder>services</folder>
+        <folder plugin="klarna">src</folder>
+    </files>
+
+    <form>
+        <fields name="params" addfieldpath="/administrator/components/com_phocacart/models/fields">
+            <fieldset name="payment" group="pcp">
+
+                <!-- Sandbox mod -->
+                <field name="sandbox"
+                       type="list"
+                       label="PLG_PCP_KLARNA_FIELD_SANDBOX_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_SANDBOX_DESC"
+                       default="1"
+                >
+                    <option value="1">PLG_PCP_KLARNA_YES</option>
+                    <option value="0">PLG_PCP_KLARNA_NO</option>
+                </field>
+
+                <!-- Regija (određuje API base URL) -->
+                <field name="region"
+                       type="list"
+                       label="PLG_PCP_KLARNA_FIELD_REGION_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_REGION_DESC"
+                       default="eu"
+                >
+                    <option value="eu">PLG_PCP_KLARNA_REGION_EU</option>
+                    <option value="na">PLG_PCP_KLARNA_REGION_NA</option>
+                    <option value="oc">PLG_PCP_KLARNA_REGION_OC</option>
+                </field>
+
+                <!-- Purchase country fallback (ISO 3166 alpha-2, npr. SE) -->
+                <field name="purchase_country"
+                       type="text"
+                       label="PLG_PCP_KLARNA_FIELD_PURCHASE_COUNTRY_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_PURCHASE_COUNTRY_DESC"
+                       default="SE"
+                       required="true"
+                       maxlength="2"
+                />
+
+                <!-- Capture mode -->
+                <field name="auto_capture"
+                       type="list"
+                       label="PLG_PCP_KLARNA_FIELD_AUTO_CAPTURE_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_AUTO_CAPTURE_DESC"
+                       default="1"
+                >
+                    <option value="1">PLG_PCP_KLARNA_YES</option>
+                    <option value="0">PLG_PCP_KLARNA_NO</option>
+                </field>
+
+                <!-- Statusi ordera -->
+                <field name="phocahead_statuses"
+                       type="phocahead"
+                       default="PLG_PCP_KLARNA_FIELD_SPACER_STATUSES_LABEL"
+                       label=""
+                       description=""
+                       filter="unset"
+                />
+
+                <field name="status_completed"
+                       type="PhocaCartOrderStatus"
+                       default="6"
+                       label="PLG_PCP_KLARNA_FIELD_STATUS_COMPLETED_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_STATUS_COMPLETED_DESC"
+                />
+
+                <field name="status_failed"
+                       type="PhocaCartOrderStatus"
+                       default="7"
+                       label="PLG_PCP_KLARNA_FIELD_STATUS_FAILED_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_STATUS_FAILED_DESC"
+                />
+
+                <field name="status_canceled"
+                       type="PhocaCartOrderStatus"
+                       default="3"
+                       label="PLG_PCP_KLARNA_FIELD_STATUS_CANCELED_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_STATUS_CANCELED_DESC"
+                />
+
+                <field name="status_refunded"
+                       type="PhocaCartOrderStatus"
+                       default="5"
+                       label="PLG_PCP_KLARNA_FIELD_STATUS_REFUNDED_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_STATUS_REFUNDED_DESC"
+                />
+
+                <field name="status_part_refunded"
+                       type="PhocaCartOrderStatus"
+                       default="5"
+                       label="PLG_PCP_KLARNA_FIELD_STATUS_PART_REFUNDED_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_STATUS_PART_REFUNDED_DESC"
+                />
+
+                <!-- API Kredencijali -->
+                <field name="phocahead_api"
+                       type="phocahead"
+                       default="PLG_PCP_KLARNA_FIELD_SPACER_API_LABEL"
+                       label=""
+                       description=""
+                       filter="unset"
+                />
+
+                <field name="api_username"
+                       type="text"
+                       label="PLG_PCP_KLARNA_FIELD_API_USERNAME_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_API_USERNAME_DESC"
+                       required="true"
+                       maxlength="255"
+                       size="40"
+                />
+
+                <field name="api_password"
+                       type="password"
+                       label="PLG_PCP_KLARNA_FIELD_API_PASSWORD_LABEL"
+                       description="PLG_PCP_KLARNA_FIELD_API_PASSWORD_DESC"
+                       required="true"
+                       autocomplete="new-password"
+                       maxlength="500"
+                       size="40"
+                />
+
+            </fieldset>
+        </fields>
+    </form>
+
+</extension>
