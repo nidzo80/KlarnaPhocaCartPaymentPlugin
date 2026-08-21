@@ -17,8 +17,8 @@
         <language tag="en-GB">en-GB/plg_pcp_klarna.sys.ini</language>
         <language tag="sv-SE">sv-SE/plg_pcp_klarna.ini</language>
         <language tag="sv-SE">sv-SE/plg_pcp_klarna.sys.ini</language>
-        <language tag="sr-RS">sr-RS/plg_pcp_klarna.ini</language>
-        <language tag="sr-RS">sr-RS/plg_pcp_klarna.sys.ini</language>
+        <language tag="sr-YU">sr-YU/plg_pcp_klarna.ini</language>
+		<language tag="sr-YU">sr-YU/plg_pcp_klarna.sys.ini</language>
     </languages>
 
     <files>
